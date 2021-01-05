@@ -11,8 +11,15 @@ public class HomePage extends BasePage {
 
     @FindBy(linkText = "Dropdown")
     private WebElement dropdown;
+
     @FindBy(linkText = "Hovers")
     private WebElement hovers;
+
+    @FindBy(linkText = "Key Presses")
+    private WebElement keyPressesLink;
+
+    @FindBy(linkText = "Horizontal Slider")
+    private WebElement horizonalSlider;
 
 
     public HomePage(WebDriver driver) {
@@ -28,5 +35,15 @@ public class HomePage extends BasePage {
         hovers.click();
         return new HoversPage(driver);
     }
+
+    public KeyPage clickKeyPressesPage(){
+        keyPressesLink.click();
+        return new KeyPage(driver);
+
+    }
+
+    public HorizontalSliderPage clickHorizontalSliderPage(){
+        horizonalSlider.click();
+        return new HorizontalSliderPage(driver);}
 
 }

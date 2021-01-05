@@ -4,6 +4,7 @@
     <test name="all tests">
             <classes>
                 <class name="tests.DropDownTests">
+                <class name="tests.HoversTest">
                 </class>
             </classes>
     </test>
