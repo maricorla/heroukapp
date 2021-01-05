@@ -21,9 +21,20 @@ public class HomePage extends BasePage {
     @FindBy(linkText = "Horizontal Slider")
     private WebElement horizonalSlider;
 
+    @FindBy(linkText = "File Upload")
+    private WebElement fileUploadlink;
+
+    @FindBy(linkText = "Context Menu")
+    private WebElement contextMenu;
+
 
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+    public ContextMenuPage clickContextMenuPage(){
+        contextMenu.click();
+        return new ContextMenuPage(driver);
     }
 
     public DropdownPage clickDropdownPage(){
@@ -44,6 +55,11 @@ public class HomePage extends BasePage {
 
     public HorizontalSliderPage clickHorizontalSliderPage(){
         horizonalSlider.click();
-        return new HorizontalSliderPage(driver);}
+        return new HorizontalSliderPage(driver);
+    }
+
+    public UploadFilePage clickFileUploadPage(){
+       fileUploadlink.click();
+        return new UploadFilePage(driver);}
 
 }
