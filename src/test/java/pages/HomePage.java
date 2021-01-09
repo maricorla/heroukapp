@@ -27,14 +27,40 @@ public class HomePage extends BasePage {
     @FindBy(linkText = "Context Menu")
     private WebElement contextMenu;
 
+    @FindBy(linkText = "Dynamic Loading")
+    private WebElement dynamicLoading;
+
+    @FindBy(linkText = "Multiple Windows")
+    private WebElement multipleWindow;
+
+    @FindBy(linkText = "WYSIWYG Editor")
+    private WebElement wysiwygEditor;
+
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
+    public WysiwygEditorPage clickWysiwygEditorPage(){
+        wysiwygEditor.click();
+        return new WysiwygEditorPage(driver);
+    }
+
+    public MultipleWindowsPage clickmultipleWindowsPage(){
+        multipleWindow.click();
+        return new MultipleWindowsPage(driver);
+    }
+
+
+
     public ContextMenuPage clickContextMenuPage(){
         contextMenu.click();
         return new ContextMenuPage(driver);
+    }
+
+    public DynamicLoading clickDynamicLoading(){
+        dynamicLoading.click();
+        return new DynamicLoading(driver);
     }
 
     public DropdownPage clickDropdownPage(){

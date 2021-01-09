@@ -25,6 +25,19 @@ public class KeysTest extends BaseTest{
         Assert.assertEquals(result, ""+(int)(numOfSteps*stepSize), "Wrong number");
     }
 
+    @Test
+    public void checkWorkDynamicPage(){
+
+        var dynamicPage=homepage.clickDynamicLoading();
+        var dynamicLoadExample2Page= dynamicPage.clickDynamicLoadingExample2();
+        dynamicLoadExample2Page.clickStartButton();
+        String result = dynamicLoadExample2Page.resultOfLoad();
+
+        Assert.assertFalse(dynamicLoadExample2Page.isStartButtonDisplayed(), "There is button");
+       Assert.assertEquals(result, "Hello World!");
+
+    }
+
 
 
 }

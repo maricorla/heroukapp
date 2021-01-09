@@ -3,7 +3,6 @@ package base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import utils.UtilsMethods;
 
 public class BasePage {
     protected WebDriver driver;
