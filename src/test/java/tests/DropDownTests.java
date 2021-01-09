@@ -15,7 +15,7 @@ public class DropDownTests extends BaseTest {
         dropdownPage.selectFromDropdown(option);
         var selectedOptions=dropdownPage.getSelectedOptions();
         assertTrue(selectedOptions.contains(option),"I did");
-       assertEquals(selectedOptions.size(),2, "Wrong numbers");
+       assertEquals(selectedOptions.size(),1, "Wrong numbers");
 
 
     }

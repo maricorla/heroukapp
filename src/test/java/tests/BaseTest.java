@@ -7,6 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -14,6 +15,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
+import utils.EventReporter;
 import utils.WindowManager;
 
 import java.io.File;
@@ -21,8 +23,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
+    private EventFiringWebDriver driver;
 
-    protected WebDriver driver;
+  //  protected WebDriver driver;
     private final String BASE_URL="https://the-internet.herokuapp.com/";
     protected HomePage homepage;
 
@@ -33,7 +36,8 @@ public class BaseTest {
     public void setup(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions().addArguments("start-fullscreen");
-        driver = new ChromeDriver(options);
+        driver = new EventFiringWebDriver( new ChromeDriver(options));
+        driver.register(new EventReporter());
        // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         goHome();
         homepage = new HomePage(driver);
